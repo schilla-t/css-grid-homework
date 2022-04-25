@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans&display=swap');
+
+
+* {box-sizing: border-box; margin: 0; padding: 0;}
+body {font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.5}
+
+img{
+    max-width: 100%;
+}
+
+.article-title{
+    display: block; /* Ez azt eredmenyezi, hogy uj sorban fog mindig szepen rendezetten kezdodni a bekezdes*/
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+
+}
+
+.article-title:hover {
+    color: #FF3C50;
+}
+
+header{
+    background: #0b181e;
+    font-size: 14px;
+    font-weight:600px;
+    text-transform: uppercase;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+header a:hover{
+    color: #a6d7f1;
+}
+
+header .logo {
+    color: #a6d7f1;
+    grid-column: span 3; /* Ez azt jelenti, hogy a 12 oszlopos gridbol a 3db oszlopot foglal el ez a div*/
+}
+
+@media(max-width:800px) { /*Igy tesszuk a weboldalt reszponzivva, ha a fejlesztoi nezetben 800px ala csokken a kep akkor lesznek ervenyesek ezek a beallitasok a elemekre*/
+    header .grid{
+        grid-row-gap:0;
+    }
+    header .logo{
+        grid-column: span 12 ;
+        text-align: center;
+        margin: 10px 0;
+}
+    header nav {
+    grid-column: span 12;
+    justify-self: center;
+}
+    header nav ul{
+    justify-content: center;
+}
+}
+
+.article-category{
+    background: #FF3C50;
+    color: white;
+    text-transform: uppercase;
+    padding: 2px 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-block;
+    margin: 0 0 5px 0;
+}
+
+.article-category:hover{
+    background: black;
+}
+
+.article-image{
+    display: block;
+    margin: 0 0 15px 0;
+
+}
+
+.article-image img{
+    display: block;
+}
+
+.section-title{
+font-size: 24px;
+font-weight: 600;
+}
+
+
+
+
+header nav {
+grid-column: span 9;
+justify-self: end;
+}
+
+header nav ul{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+
+}
+
+header .grid{
+    align-items: center;
+    padding: 10px 0;
+}
+
+.grid{
+    display: grid;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 90%;
+    grid-template-columns: repeat(12,1fr); /* az oszlopok szama 12 es oszlopok szelessege 1fr */
+    gap: 30px; /* ez az oszlopok kozotti tavolsag*/
+    grid-template-rows: auto;
+}
+
+@media (max-width:800px){
+    .grid{
+        grid-column-gap:0 ;
+        display: block;
+    }
+}
+
+.leading-articles .section-title{
+    grid-column: span 12;
+}
+
+.leading-articles .box-1{
+    grid-area: 2/1/4/9; /* Ezek a szamok: a 2. sor elso oszlopatol indul es a 4. sor 9. oszlopaig tart ez a resz (Ezek ellenorizhetoek a fejleszteoi nezetben a Layout grid overlays/ show lay line numbers) */
+}
+
+.leading-articles .box-2{
+    grid-area: 2/9/3/13; /* Ezek a szamok: a 2. sor 9. oszlopatol indul es a 3. sor 13. oszlopaig tart ez a resz */
+}
+
+.leading-articles .box-3{
+    grid-area: 3/9/4/13;  /* Ezek a szamok: a 3. sor 9. oszlopatol indul es a 4. sor 13. oszlopaig tart ez a resz */
+}
+
+@media (max-width:800px){
+    .leading-articles .box-1{
+        grid-area: 2/1/3/13; 
+    }
+    
+    .leading-articles .box-2{
+        grid-area: 3/1/4/13; 
+    }
+    
+    .leading-articles .box-3{
+        grid-area: 4/1/5/13;
+    }
+}
+
+.leading-articles{
+    padding: 60px 0;
+}
+
+.featured-articles .section-title{
+    grid-column: span 12;
+}
+
+.featured-articles .box {
+    grid-column: span 4; /* Mivel ez a 3 box egyforma tavolsagra helyezkedik el ezert nem kell egyenkent kivalsztani oket ebben az esetben minden box 4 oszlopot fog elfoglalni */
+}
+
+.featured-articles {
+background: #f6f6f6;
+padding: 60px 0; /* Ez azt addja meg hogy a kulonbozo reszek kozott legyen 60px-es eltartas tehat pl ennel a a kiemelt hirek resz utan*/
+}
+
+@media (max-width:800px){
+    .featured-articles .box{
+        grid-column:span 12 ;/* Ez korabban 3 oszlopban helyezkedett el es most 800px alatt az olal teljes szelessegebben egyenkent egymas ala rendezi oket*/
+    }
+}
+
+.short-articles .section-title{
+    grid-column: span 12;
+}
+
+.short-articles .box{
+    grid-column: span 6; /* Mivel ez a 2 box is egyforma tavolsagra helyezkedik el ezert nem kell egyenkent kivalsztani oket ebben az esetben minden box 6 oszlopot fog elfoglalni */
+}
+
+.short-articles .article-title{
+    font-size: 16px;
+    margin: 0 0 15px 0;
+} 
+
+.short-articles{
+    padding: 60px 0; /* Ez azt addja meg hogy a kulonbozo reszek kozott legyen 60px-es eltartas tehat pl ennel a a hrek roviden resz utan*/
+}
+
+@media (max-width:800px){
+    .short-articles .box{
+        grid-column:span 12 ;
+    }
+}
+
+
+footer .section-title{
+    grid-column: span 12;
+}
+
+footer .box {
+    grid-column: span 4;
+}
+
+footer{
+    background: #0b181e;
+    padding: 60px 0;
+}
+
+
+footer ul li:first-child{  /* Ez azt jelenti hogy a legelso elem a felsorolason belul tehat a Column1,2,3*/
+    font-weight: 600;
+    color: white;
+    margin: 0 0 20px 0; /* Ez azt jelenti hogy a column1,2,3 alatt 20px eltartas van*/
+}
+
+footer a {
+    color: #999;
+    text-decoration: none;
+}
+
+footer li {
+    margin: 0 0 10px 0;
+}
+
+footer ul{
+    list-style: none;
+}
+
+@media (max-width:800px){
+   footer .box{
+        grid-column:span 12 ;
+    }
+}
+
+
+
